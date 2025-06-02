@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .shadow-large {
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .shadow {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+        
+        .heading {
+            position: relative;
+            display: inline-block;
+            font-size: 2em;
+            font-weight: 300;
+            margin: 0 0 30px 0;
+        }
+        
+        .heading:after {
+            position: absolute;
+            content: '';
+            top: 100%;
+            height: 1px;
+            width: 50px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background: #3498db;
+        }
+        
+        #mobile-menu-open {
+            display: none;
+            cursor: pointer;
+            position: fixed;
+            right: 15px;
+            top: 10px;
+            color: #3498db;
+            font-size: 1.5em;
+            z-index: 20;
+            padding: 0 7px;
+            border-radius: 4px;
+            background: #fff;
+        }
+        
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+            animation: fadeInDown 1s 0s both;
+        }
+        
+        header ul {
+            display: inline-block;
+            background: #fff;
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        
+        header li {
+            display: inline-block;
+        }
+        
+        header a {
+            display: block;
+            color: #3498db;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        header a:hover {
+            color: #217dbb;
+            text-decoration: none;
+            background: #eee;
+        }
+        
+        header a:focus {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        #menu.active {
+            display: block;
+        }
+        
+        #mobile-menu-close {
+            display: none;
+            text-align: right;
+            width: 100%;
+            background: #fff;
+            font-size: 1.5em;
+            padding-right: 15px;
+            padding-top: 10px;
+            cursor: pointer;
+            color: #3498db;
+        }
+        
+        #lead {
+            position: relative;
+            height: 100vh;
+            min-height: 500px;
+            max-height: 1080px;
+            background: url('./images/lead-background.jpg');
+            background-size: cover;
+            padding: 15px;
+            overflow: hidden;
+        }
+        
+        #lead-content {
+            position: absolute;
+            z-index: 10;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        #lead-content h1,
+        #lead-content h2 {
+            margin: 0;
+        }
+        
+        #lead-content h1 {
+            color: #fff;
+            font-weight: 900;
+            font-size: 5em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 0.9em;
+        }
+        
+        #lead-content h2 {
+            color: #a0cfee;
+            font-weight: 500;
+            font-size: 2.25em;
+            margin-bottom: 15px;
+        }
+        
+        #lead-overlay {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(33, 125, 187, 0.8);
+            z-index: 1;
+        }
+        
+        #lead-down {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            bottom: 15px;
+            color: #fff;
+        }
+        
+        #lead-down span {
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 3px solid #a0cfee;
+            text-align: center;
+        }
+        
+        #lead-down i {
+            animation: pulsate 1.5s ease;
+            animation-iteration-count: infinite;
+            padding-top: 5px;
+        }
+        
+        .btn-rounded-white {
+            display: inline-block;
+            color: #fff;
+            padding: 15px 40px;
+            border: 3px solid #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            background: transparent;
+            transition: .5s ease all;
+        }
+        
+        .btn-rounded-white:hover {
+            color: #3498db;
+            background: #fff;
+            text-decoration: none;
+        }
+        
+        #about {
+            padding: 75px 15px;
+            border-bottom: 1px solid #dcd9d9;
+        }
+        
+        #about h2 {
+            color: #374054;
+        }
+        
+        #about p {
+            color: #74808a;
+            margin: 0;
+        }
+        
+        #experience {
+            padding: 50px 15px;
+            text-align: center;
+            border-bottom: 1px solid #dcd9d9;
+        }
+        
+        #experience h2 {
+            color: #374054;
+        }
+        
+        .background-alt {
+            background: #f2f2f5;
+        }
+        
+        #experience-timeline {
+            margin: 30px auto 0 auto;
+            position: relative;
+            max-width: 1000px;
+        }
+        
+        #experience-timeline:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            bottom: 0;
+            left: 303px;
+            right: auto;
+            height: 100%;
+            width: 3px;
+            background: #3498db;
+            z-index: 0;
+        }
+        
+        #experience-timeline:after {
+            position: absolute;
+            content: '';
+            width: 3px;
+            height: 40px;
+            background: #3498db;
+            background: linear-gradient(to bottom, #3498db, rgba(52, 152, 219, 0));
+            top: 100%;
+            left: 303px;
+        }
+        
+        .vtimeline-content {
+            margin-left: 350px;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            padding: 15px;
+            border-radius: 3px;
+            text-align: left;
+        }
+        
+        .vtimeline-content h3 {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #374054;
+            display: inline-block;
+            margin: 0;
+        }
+        
+        .vtimeline-content h4 {
+            font-size: 1.2em;
+            font-weight: 300;
+            color: #7e8890;
+            margin: 0 0 15px 0;
+        }
+        
+        .vtimeline-content p {
+            color: #74808a;
+            font-size: 0.9em;
+            margin: 0;
+        }
+        
+        .vtimeline-point {
+            position: relative;
+            display: block;
+            vertical-align: top;
+            margin-bottom: 30px;
+        }
+        
+        .vtimeline-icon {
+            position: relative;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            background: #3498db;
+            border-radius: 50%;
+            float: left;
+            z-index: 99;
+            margin-left: 280px;
+        }
+        
+        .vtimeline-icon i {
+            display: block;
+            font-size: 2em;
+            margin-top: 10px;
+        }
+        
+        .vtimeline-date {
+            width: 260px;
+            text-align: right;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            font-weight: 300;
+            color: #374054;
+        }
+        
+        #education {
+            padding: 50px 15px 20px 15px;
+            border-bottom: 1px solid #dcd9d9;
+            text-align: center;
+        }
+        
+        #education h2 {
+            color: #374054;
+            margin-bottom: 50px;
+        }
+        
+        .education-block {
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            background: #fff;
+            border: 1px solid #dcd9d9;
+            padding: 15px;
+            border-radius: 3px;
+            text-align: left;
+        }
+        
+        .education-block h3 {
+            font-weight: 500;
+            float: left;
+            margin: 0;
+            color: #374054;
+        }
+        
+        .education-date {
+            float: right;
+            color: #74808a;
+        }
+        
+        .education-block h4 {
+            color: #74808a;
+            clear: both;
+            font-weight: 500;
+            margin: 0 0 15px 0;
+        }
+        
+        .education-block p,
+        .education-block ul {
+            margin: 0;
+            color: #74808a;
+            font-size: 0.9em;
+        }
+        
+        .education-block ul {
+            padding: 0 0 0 15px;
+        }
+        
+        #projects {
+            padding: 50px 15px;
+            border-bottom: 1px solid #dcd9d9;
+            text-align: center;
+        }
+        
+        #projects h2 {
+            color: #374054;
+            margin-bottom: 50px;
+        }
+        
+        .project {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 4px;
+            display: block;
+        }
+        
+        .project-image {
+            float: left;
+            width: 300px;
+            height: 200px;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            position: relative;
+            margin-left: 300px;
+            padding: 30px;
+            min-height: 200px;
+        }
+        
+        .project-info h3 {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #374054;
+            margin: 0 0 15px 0;
+        }
+        
+        .project-info p,
+        .project-info ul {
+            color: #74808a;
+            margin: 0 0 15px 0;
+            font-size: 0.9em;
+        }
+        
+        .project-info ul {
+            padding-left: 20px;
+            text-align: left;
+        }
+        
+        .project-info a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .project-info a:hover {
+            color: #217dbb;
+        }
+        
+        #skills {
+            padding: 50px 15px;
+            text-align: center;
+        }
+        
+        #skills h2 {
+            color: #374054;
+            margin-bottom: 50px;
+        }
+        
+        #skills ul {
+            display: block;
+            margin: 0 auto;
+            padding: 0;
+            max-width: 800px;
+        }
+        
+        #skills li {
+            display: inline-block;
+            margin: 7px;
+            padding: 5px 10px;
+            color: #374054;
+            background: #e4e4ea;
+            list-style: none;
+            cursor: default;
+            font-size: 1.2em;
+        }
+        
+        #contact {
+            padding: 50px 15px;
+            background: #3498db;
+            text-align: center;
+        }
+        
+        #contact h2 {
+            margin: 0 0 15px 0;
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        #contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        #contact-form input,
+        #contact-form textarea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+            margin-bottom: 10px;
+            background: #1d6fa5;
+            color: #fff;
+            transition: .5s ease all;
+        }
+        
+        #contact-form input::-webkit-input-placeholder,
+        #contact-form textarea::-webkit-input-placeholder {
+            color: #fff;
+        }
+        
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            outline: none;
+            background: #16527a;
+        }
+        
+        #contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+        
+        #contact-form button {
+            display: block;
+            width: 100%;
+            background: #fff;
+            border-radius: 4px;
+            padding: 5px 10px;
+            border: none;
+            color: #3498db;
+            font-weight: 700;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: .5s ease all;
+        }
+        
+        #contact-form button:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+        
+        footer {
+            padding: 50px 0;
+        }
+        
+        .copyright {
+            padding-top: 20px;
+        }
+        
+        .copyright p {
+            margin: 0;
+            color: #74808a;
+        }
+        
+        .top {
+            text-align: center;
+        }
+        
+        .top span {
+            cursor: pointer;
+            display: block;
+            margin: 15px auto 0 auto;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 3px solid #b9bfc4;
+            text-align: center;
+        }
+        
+        .top i {
+            color: #74808a;
+            padding-top: 5px;
+        }
+        
+        .social {
+            text-align: right;
+        }
+        
+        .social ul {
+            margin: 5px 0 0 0;
+            padding: 0;
+        }
+        
+        .social li {
+            display: inline-block;
+            font-size: 1.25em;
+            list-style: none;
+        }
+        
+        .social a {
+            display: block;
+            color: #74808a;
+            padding: 10px;
+        }
+        
+        .social a:hover {
+            color: #3498db;
+        }
+        
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, -100%, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        
+        @keyframes pulsate {
+            0% {
+                transform: scale(1, 1);
+            }
+            50% {
+                transform: scale(1.2, 1.2);
+            }
+            100% {
+                transform: scale(1, 1);
+            }
+        }
+        
+        @media only screen and (max-width: 991px) {
+            header {
+                background: #fff;
+                border-bottom: 1px solid #dcd9d9;
+                position: fixed;
+                top: 0;
+                margin: 0;
+                transition: all 0.5s ease;
+                z-index: 999;
+                height: 35px;
+                overflow: hidden;
+            }
+            
+            header.active {
+                height: auto;
+            }
+            
+            header.sticky {
+                background: #fff;
+                border-bottom: 1px solid #dcd9d9;
+                position: fixed;
+                top: 0;
+                margin: 0;
+                transition: all 0.5s ease;
+                z-index: 999;
+                height: 35px;
+                overflow: hidden;
+            }
+            
+            #mobile-menu-open {
+                display: block;
+            }
+            
+            #mobile-menu-close {
+                display: block;
+            }
+            
+            #menu {
+                height: auto;
+                overflow: hidden;
+                box-shadow: none;
+                border-radius: 0;
+                width: 100%;
+            }
+            
+            #menu li {
+                display: block;
+                margin-bottom: 10px;
+            }
+            
+            #lead-content h1 {
+                font-size: 3em;
+            }
+            
+            #lead-content h2 {
+                font-size: 1.75em;
+            }
+            
+            #about {
+                text-align: center;
+            }
+            
+            #experience-timeline:before,
+            #experience-timeline:after {
+                left: 23px;
+            }
+            
+            .vtimeline-date {
+                width: auto;
+                text-align: left;
+                position: relative;
+                margin-bottom: 15px;
+                display: block;
+                margin-left: 70px;
+            }
+            
+            .vtimeline-icon {
+                margin-left: 0;
+            }
+            
+            .vtimeline-content {
+                margin-left: 70px;
+            }
+            
+            .project-info {
+                position: static;
+                margin-left: 0;
+                padding: 30px 15px;
+            }
+            
+            .project-image {
+                float: none;
+                width: 100%;
+                height: 200px;
+            }
+            
+            footer {
+                text-align: center;
+            }
+            
+            .social {
+                text-align: center;
+            }
+        }
+        
+        @media only screen and (max-width: 767px) {
+            #lead-content h1 {
+                font-size: 2em;
+            }
+            
+            #lead-content h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mobile-menu-open" class="shadow-large">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <!-- End #mobile-menu-toggle -->
+    <header>
+        <div id="mobile-menu-close">
+            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <ul id="menu" class="shadow">
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+            <li>
+                <a href="#education">Education</a>
+            </li>
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+    </header>
+    <!-- End header -->
+
+    <div id="lead">
+        <div id="lead-content">
+            <h1>Salman Moin</h1>
+            <h2>DevOps Engineer</h2>
+            <a href="#" class="btn-rounded-white">Download Resume</a>
+        </div>
+        <!-- End #lead-content -->
+
+        <div id="lead-overlay"></div>
+
+        <div id="lead-down">
+            <span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </span>
+        </div>
+        <!-- End #lead-down -->
+    </div>
+    <!-- End #lead -->
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 class="heading">About Me</h2>
+                </div>
+                <div class="col-md-8">
+<p>
+   <strong>DevOps Engineer | Cloud & Automation Specialist | Red Hat Certified (RHCE/RHCSA)</strong>
+</p>
+<p>I’m a DevOps enthusiast with a passion for building scalable, secure infrastructure through automation. After transitioning from web development (where I automated workflows, reducing errors by 30%), I pursued formal training in DevOps methodologies, earning certifications like RHCE and mastering tools like Jenkins (improved deployment speed by 40%), Terraform (reduced provisioning time by 50%), and Kubernetes (enhanced application scalability by 35%).
+    I’m a DevOps enthusiast with a passion for building scalable, secure infrastructure through automation. After transitioning from web development (where I automated workflows, reducing errors by 30%), I pursued formal training in DevOps methodologies, earning certifications like RHCE.
+    </p>
+<p>
+    <strong>Tools and Expertise:</strong>
+</p>
+<ul>
+    <li><p>CI/CD: Jenkins, GitHub Actions</p></li>
+    <li><p>Cloud & IaC: AWS/GCP, Terraform, Ansible</p></li>
+    <li><p>Containers: Docker, Kubernetes</p></li>
+    <li><p>Monitoring: Prometheus, Grafana</p></li>
+</ul>
+<p>
+    My strength lies in bridging development and operations—whether optimizing deployments, troubleshooting infrastructure, or mentoring teams on DevOps best practices. Currently, I’m deepening my expertise with Azure (AZ-104/204) and AWS Solutions Architect certifications.
+When I’m not crafting pipelines, I contribute to open-source projects and write about cloud technologies. Let’s connect to discuss automation, cloud-native solutions, or how I can help your team deliver faster and more reliably.
+</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End #about -->
+
+    <div id="experience" class="background-alt">
+        <h2 class="heading">Experience</h2>
+        <div id="experience-timeline">
+            <div class="vtimeline-point">
+                <div class="vtimeline-icon">
+                    <i class="fa fa-map-marker"></i>
+                </div>
+                <div class="vtimeline-block">
+                    <span class="vtimeline-date">August 2022 – January 2024</span>
+                    <div class="vtimeline-content">
+                        <h3>Zuberi Engineering Company</h3>
+                        <h4>Web Developer</h4>
+                        <p>
+                            Worked as a Web Developer focused on managing and improving internal software systems used for equipment data digitization and operations. Acted as a key liaison between internal teams and outsourced software developers, gathering requirements, communicating updates, and ensuring feature alignment with business needs.
+                        </p>
+                        <p>
+                        <strong>Key Contributions:</strong>
+                        </p>
+                        <ul>
+                         <li><p>Streamlined communication and requirement gathering between departments and external development teams.</p></li>
+                         <li><p>Played a central role in the software update cycle—tracking feature requests, testing new releases, and coordinating deployments.</p></li>
+                         <li><p>Facilitated the adoption of cloud-based tools to enhance team collaboration and software accessibility.</p></li>
+                         <li><p>Gained experience in Agile coordination, process improvement, and DevOps-aligned practices like iterative development and feedback loops.</p></li>
+                         </ul>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+    <!-- End #experience -->
+
+    <div id="education">
+        <h2 class="heading">Education</h2>
+        <div class="education-block">
+            <h3>Edureka/Purdue University</h3>
+            <span class="education-date">Mar 2024 - Jan 2025</span>
+            <h4>Post Graduate program in DevOps</h4>
+            <ul>
+                <li>Designed and implemented CI/CD pipelines using Jenkins and GitHub Actions.</li>
+                <li>Containerized applications with Docker and orchestrated deployments using Kubernetes.</li>
+                <li>Automated infrastructure provisioning with Terraform and Ansible.</li>
+                <li>Monitored application health and performance using Prometheus and Grafana.</li>
+                <li>Practiced Infrastructure as Code (IaC) and cloud deployments on AWS and Azure.</li>
+                <li>Covered DevOps lifecycle, CI/CD, containerization, cloud platforms (AWS, Azure), IaC, and automation tools.</li>
+                <li>Completed hands-on capstone projects simulating real-world DevOps pipelines and deployments.</li>
+            </ul>
+        </div>
+        <!-- End .education-block -->
+
+        <div class="education-block">
+            <h3>Amity University, Noida</h3>
+            <span class="education-date">Sept 2016 - Oct 2020</span>
+            <h4>Bachelor of Technology in Computer Science</h4>
+            <ul>
+               <li>
+               Developed a strong foundation in computer science principles, including algorithms, data structures, databases, and software engineering.
+               </li> 
+               <li>Gained hands-on programming experience in Python, Java, and web technologies.</li>
+               <li>
+               Completed coursework and projects in areas such as operating systems, networking, and cloud computing.
+               </li>
+              <li>Participated in team-based software development projects, enhancing collaboration and problem-solving skills.
+               </li>
+               <li>
+               Built a solid base for advanced studies and practical application in DevOps, automation, and system administration.
+               </li>
+            </ul>
+        </div>
+        <!-- End .education-block -->
+    </div>
+    <!-- End #education -->
+
+    <div id="projects" class="background-alt">
+        <h2 class="heading">Projects</h2>
+        <div class="container">
+            <div class="row">
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="./images/project1.png" alt="Project Image" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Medusa E-Commerce Deployment on AWS ECS with Terraform</h3>
+                        <ul>
+                            <li>Deployed a scalable Medusa headless e-commerce platform on AWS ECS with Fargate using Terraform for Infrastructure as Code.</li>
+                            <li>Configured a secure, high-availability architecture with VPCs, subnets, RDS (PostgreSQL), Application Load Balancer, and ECR for containerized workloads.</li>
+                            <li>Implemented CI/CD pipelines with GitHub Actions for automated deployments.</li>
+                            <li>Managed Terraform state using S3 for secure storage and DynamoDB for state locking and consistency, ensuring reliable Infrastructure as Code workflows.</li>
+                        </ul>
+                        <a href="https://github.com/salmanmoin10/medusa-aws-deployment.git" target="_blank">View Project</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+                  <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="./images/project4.png" alt="Project Image" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Building a CI/CD Pipeline for a Tech Company</h3>
+                        <ul>
+                            <li>Developed a continuous integration pipeline in Jenkins to compile, test and package the code.</li>
+                            <li>Developed a CI/CD pipeline to address deployment delays and scalability issues using Jenkins, Docker, and Kubernetes.</li>
+                            <li>Real-time understanding and hands-on with Git, Jenkins, Ansible, Docker, Kubernetes, and AWS Devops services.</li>
+                        </ul>
+                        <a href="https://github.com/salmanmoin10/PGPFinalProject2.git" target="_blank">View Project</a>
+                    </div>
+                    <!-- End .project-info -->
+            </div>
+        </div>
+    </div>
+    <!-- End #projects -->
+
+    <div id="skills">
+        <h2 class="heading">Skills</h2>
+        <ul>
+            <li>Jenkins</li>
+            <li>Ansible</li>
+            <li>Terraform</li>
+            <li>Kubernetes</li>
+            <li>Node.js</li>
+            <li>RedHat Linux</li>
+            <li>Docker</li>
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>C</li>           
+            <li>C++</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Prometheus</li>
+            <li>Grafana</li>
+        </ul>
+    </div>
+    <!-- End #skills -->
+
+    <div id="contact">
+        <h2>Get in Touch</h2>
+        <div id="contact-form">
+            <form method="POST" action="https://formspree.io/f/mwpbkqon">
+                <input type="hidden" name="_subject" value="Contact request from personal website" />
+                <input type="email" name="_replyto" placeholder="Your email" required>
+                <textarea name="message" placeholder="Your message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <!-- End #contact-form -->
+    </div>
+    <!-- End #contact -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 copyright">
+                    <p>
+                        Copyright &copy; <span id="current-year">2025</span> SALMAN MOIN
+                    </p>
+                </div>
+                <div class="col-sm-2 top">
+                    <span id="to-top">
+                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="col-sm-5 social">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/salmanmoin10" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com/in/salman-moin" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Mobile menu toggle
+            $('#mobile-menu-open').click(function() {
+                $('header, body').addClass('active');
+            });
+
+            $('#mobile-menu-close').click(function() {
+                $('header, body').removeClass('active');
+            });
+
+            // Smooth scrolling for all navigation links
+            $('a[href*="#"]:not([href="#"])').click(function(e) {
+                e.preventDefault(); // Prevent default anchor behavior
+                
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        // Close mobile menu if open
+                        $('header, body').removeClass('active');
+                        
+                        $('html, body').animate({
+                            scrollTop: target.offset().top - 50 // Add small offset for better positioning
+                        }, 1500); // Smooth scroll duration (1.5 seconds)
+                    }
+                }
+            });
+
+            // Scroll to top
+            $('#to-top').click(function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // Scroll to sections (down arrow)
+            $('#lead-down span').click(function(e) {
+                e.preventDefault(); // Prevent default anchor behavior
+                var target = $('#about');
+                if (target.length) {
+                    var scrollTo = target.offset().top - 50; // Add small offset
+                    $('html, body').animate({
+                        scrollTop: scrollTo
+                    }, 1500); // Smooth scroll duration (1.5 seconds)
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+                </div>
+                <!-- End .project -->
+
+               
+                
