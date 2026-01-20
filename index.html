@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Portfolio</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="images/favicon1.png" type="image/png" sizes="32x32">
+	<link rel="icon" href="images/favicon1.png" type="image/png" sizes="32x32">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
@@ -101,6 +101,29 @@
         header a:focus {
             color: #3498db;
             text-decoration: none;
+        }
+
+        header a.active {
+            color: #217dbb;
+            background: #e8f1fb;
+        }
+
+        .theme-toggle {
+            border: none;
+            background: transparent;
+            color: #3498db;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .theme-toggle:hover {
+            color: #217dbb;
+            background: #eee;
+        }
+
+        .theme-toggle:focus {
+            outline: none;
         }
         
         #menu.active {
@@ -198,6 +221,13 @@
             animation: pulsate 1.5s ease;
             animation-iteration-count: infinite;
             padding-top: 5px;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            margin-left: 6px;
+            color: #a0cfee;
+            animation: blink 1s steps(2, start) infinite;
         }
         
         .btn-rounded-white {
@@ -486,6 +516,14 @@
             list-style: none;
             cursor: default;
             font-size: 1.2em;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        #skills.in-view li {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         #contact {
@@ -550,6 +588,45 @@
         #contact-form button:hover {
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
         }
+
+        .contact-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin: 10px 0 25px;
+            flex-wrap: wrap;
+        }
+
+        .copy-btn {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s ease all;
+        }
+
+        .copy-btn:hover {
+            background: #fff;
+            color: #3498db;
+        }
+
+        .copy-status {
+            color: #eaf5ff;
+            font-size: 0.9em;
+        }
+
+        .honeypot {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
         
         footer {
             padding: 50px 0;
@@ -577,6 +654,16 @@
             border-radius: 50%;
             border: 3px solid #b9bfc4;
             text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(6px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .top span.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
         }
         
         .top i {
@@ -607,6 +694,91 @@
         
         .social a:hover {
             color: #3498db;
+        }
+
+        body.theme-dark {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        body.theme-dark header ul,
+        body.theme-dark #menu {
+            background: #0b1220;
+        }
+
+        body.theme-dark header a,
+        body.theme-dark .theme-toggle {
+            color: #93c5fd;
+        }
+
+        body.theme-dark header a:hover,
+        body.theme-dark .theme-toggle:hover,
+        body.theme-dark header a.active {
+            color: #bfdbfe;
+            background: #111827;
+        }
+
+        body.theme-dark .background-alt {
+            background: #0b1220;
+        }
+
+        body.theme-dark .project,
+        body.theme-dark .education-block,
+        body.theme-dark .vtimeline-content {
+            background: #0f1a2e;
+            border-color: #1f2a44;
+        }
+
+        body.theme-dark .project-info h3,
+        body.theme-dark #about h2,
+        body.theme-dark #experience h2,
+        body.theme-dark #education h2,
+        body.theme-dark #projects h2,
+        body.theme-dark #skills h2 {
+            color: #e2e8f0;
+        }
+
+        body.theme-dark .project-info p,
+        body.theme-dark .project-info ul,
+        body.theme-dark .education-block p,
+        body.theme-dark .education-block ul,
+        body.theme-dark .vtimeline-content p,
+        body.theme-dark .education-date,
+        body.theme-dark .vtimeline-date,
+        body.theme-dark .copyright p,
+        body.theme-dark .social a {
+            color: #cbd5f5;
+        }
+
+        body.theme-dark #skills li {
+            background: #1f2a44;
+            color: #e2e8f0;
+        }
+
+        body.theme-dark #contact {
+            background: #1e3a8a;
+        }
+
+        body.theme-dark #contact-form input,
+        body.theme-dark #contact-form textarea {
+            background: #1d4ed8;
+        }
+
+        body.theme-dark #contact-form input:focus,
+        body.theme-dark #contact-form textarea:focus {
+            background: #1e40af;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
         
         @keyframes fadeInDown {
@@ -777,6 +949,11 @@
             <li>
                 <a href="#contact">Contact</a>
             </li>
+            <li>
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle dark mode">
+                    <i class="fa fa-moon-o" aria-hidden="true"></i>
+                </button>
+            </li>
         </ul>
     </header>
     <!-- End header -->
@@ -784,7 +961,10 @@
     <div id="lead">
         <div id="lead-content">
             <h1>Salman Moin</h1>
-            <h2>DevOps Engineer</h2>
+            <h2>
+                <span id="lead-typing" data-typing="DevOps Engineer|Cloud & Automation Specialist|RHCE/RHCSA Certified">DevOps Engineer</span>
+                <span class="typing-cursor" aria-hidden="true">|</span>
+            </h2>
             <a href="./assets/Resume.pdf" class="btn-rounded-white" download="Salman_Moin_Resume.pdf">Download Resume</a>
         </div>
         <!-- End #lead-content -->
@@ -806,15 +986,14 @@
                 <div class="col-md-4">
                     <h2 class="heading">About Me</h2>
                     <div class="about-image">
-                      <img src="./images/profile.jpg" alt="Salman Moin" class="img-fluid rounded-circle shadow" style="width: 200px; height: 200px; object-fit: cover; object-position: center top; margin-top: 20px; margin-left: -30px;">
+                                            <img src="./images/profile.jpg" alt="Salman Moin" class="img-fluid rounded-circle shadow" style="width: 200px; height: 200px; object-fit: cover; object-position: center top; margin-top: 20px; margin-left: -30px;" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <div class="col-md-8">
 <p>
    <strong>DevOps Engineer | Cloud & Automation Specialist | Red Hat Certified (RHCE/RHCSA)</strong>
 </p>
-<p>I’m a DevOps enthusiast with a passion for building scalable, secure infrastructure through automation. After transitioning from web development (where I automated workflows, reducing errors by 30%), I pursued formal training in DevOps methodologies, earning certifications like RHCE and mastering tools like Jenkins (improved deployment speed by 40%), Terraform (reduced provisioning time by 50%), and Kubernetes (enhanced application scalability by 35%).
-    I’m a DevOps enthusiast with a passion for building scalable, secure infrastructure through automation. After transitioning from web development (where I automated workflows, reducing errors by 30%), I pursued formal training in DevOps methodologies, earning certifications like RHCE.
+<p>I’m a DevOps enthusiast with a passion for building scalable, secure infrastructure through automation. After transitioning from Cloud (where I automated workflows, reducing errors by 30%), I pursued formal training in DevOps methodologies, earning certifications like RHCE and mastering tools like Jenkins (improved deployment speed by 40%), Terraform (reduced provisioning time by 50%), and Kubernetes (enhanced application scalability by 35%).
     </p>
 <p>
     <strong>Tools and Expertise:</strong>
@@ -846,18 +1025,12 @@ When I’m not crafting pipelines, I contribute to open-source projects and writ
                     <span class="vtimeline-date">August 2022 – January 2024</span>
                     <div class="vtimeline-content">
                         <h3>Zuberi Engineering Company</h3>
-                        <h4>Web Developer</h4>
-                        <p>
-                            Worked as a Web Developer focused on managing and improving internal software systems used for equipment data digitization and operations. Acted as a key liaison between internal teams and outsourced software developers, gathering requirements, communicating updates, and ensuring feature alignment with business needs.
-                        </p>
-                        <p>
-                        <strong>Key Contributions:</strong>
-                        </p>
+                        <h4>Cloud & Infrastructure Engineer</h4>
                         <ul>
-                         <li><p>Streamlined communication and requirement gathering between departments and external development teams.</p></li>
-                         <li><p>Played a central role in the software update cycle—tracking feature requests, testing new releases, and coordinating deployments.</p></li>
-                         <li><p>Facilitated the adoption of cloud-based tools to enhance team collaboration and software accessibility.</p></li>
-                         <li><p>Gained experience in Agile coordination, process improvement, and DevOps-aligned practices like iterative development and feedback loops.</p></li>
+                         <li><p>Supported migration of an internal inventory-tracking web application (dealer intake → lifecycle tracking → site dispatch) from in-house servers to a cloud-hosted environment by assisting with application and data transfer, validation, and deployment tasks.</p></li>
+                         <li><p>Improved user experience by redesigning key screens and streamlining workflows, reducing repetitive steps for staff.</p></li>
+                         <li><p>Helped establish secure remote access and backup routines and collaborated with operations to introduce basic monitoring and reliability practices.</p></li>
+                         <li><p>Worked with product and outsourced teams to deploy the cloud system and onboard staff to the new processes.</p></li>
                          </ul>
                     </div>
                 </div>
@@ -915,7 +1088,7 @@ When I’m not crafting pipelines, I contribute to open-source projects and writ
             <div class="row">
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="./images/project1.png" alt="Project Image" />
+                        <img src="./images/project1.png" alt="Project Image" loading="lazy" decoding="async" />
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
@@ -933,7 +1106,7 @@ When I’m not crafting pipelines, I contribute to open-source projects and writ
                 <!-- End .project -->
                   <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="./images/project4.png" alt="Project Image" />
+                        <img src="./images/project4.png" alt="Project Image" loading="lazy" decoding="async" />
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
@@ -944,6 +1117,39 @@ When I’m not crafting pipelines, I contribute to open-source projects and writ
                             <li>Real-time understanding and hands-on with Git, Jenkins, Ansible, Docker, Kubernetes, and AWS Devops services.</li>
                         </ul>
                         <a href="https://github.com/salmanmoin10/PGPFinalProject2.git" target="_blank">View Project</a>
+                    </div>
+                    <!-- End .project-info -->
+            </div>
+            <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="./images/project6.png" alt="Project Image" loading="lazy" decoding="async" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3><b>MEAN Stack DevOps Orchestration: Containerized CRUD Deployment</b></h3>
+                        <ul>
+                            <li><b>Containerization & Optimization:</b> Architected a containerized environment using Docker and Docker Compose, utilizing multi-stage builds for the Angular frontend to significantly reduce production image size and improve deployment speed.</li>
+                            <li><b>Cloud Infrastructure & Networking:</b> Deployed the application on a cloud-hosted Ubuntu VM, configuring an Nginx reverse proxy to efficiently route traffic between the frontend and backend services.</li>
+                            <li><b>CI/CD Automation:</b> Developed a robust GitHub Actions pipeline to automate the end-to-end workflow, including image building, pushing to Docker Hub, and remote deployment to the production server.</li>
+                        </ul>
+                        <a href="https://github.com/salmanmoin10/MEAN-stack-with-Docker-and-CI-CD.git" target="_blank">View Project</a>
+                    </div>
+                    <!-- End .project-info -->
+            </div>
+            <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="./images/project5.png" alt="Project Image" loading="lazy" decoding="async" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3><b>Multi-Cloud CI/CD Pipeline: Automated Node.js Deployment via Jenkins & Terraform</b></h3>
+                        <ul>
+                            <li><b>Infrastructure as Code (IaC):</b> Automated the provisioning of a Jenkins orchestration server on AWS EC2 using Terraform, ensuring a repeatable and version-controlled infrastructure setup.</li>
+                            <li><b>End-to-End CI/CD Orchestration:</b> Engineered a comprehensive Jenkins pipeline triggered by GitHub webhooks to automate source code checkout, dependency management, and unit testing for a Node.js/Express application.</li>
+                            <li><b>Containerized Deployment:</b> Implemented a containerization strategy using Docker, managing image versioning through DockerHub and executing serverless deployments to Google Cloud Run for high availability and scaling.</li>
+                            <li><b>System Optimization & Troubleshooting:</b> Enhanced pipeline efficiency by implementing .dockerignore strategies to exclude unnecessary binaries, reducing the final Docker image size by 700MB and resolving critical deployment timeout issues.</li>
+                        </ul>
+                        <a href="https://github.com/salmanmoin10/MEAN-stack-with-Docker-and-CI-CD.git" target="_blank">View Project</a>
                     </div>
                     <!-- End .project-info -->
             </div>
@@ -975,9 +1181,14 @@ When I’m not crafting pipelines, I contribute to open-source projects and writ
 
     <div id="contact">
         <h2>Get in Touch</h2>
+        <div class="contact-actions">
+            <button type="button" class="copy-btn" data-copy="moinsalman@ymail.com">Copy email</button>
+            <span class="copy-status" aria-live="polite"></span>
+        </div>
         <div id="contact-form">
             <form method="POST" action="https://formspree.io/f/mwpbkqon">
                 <input type="hidden" name="_subject" value="Contact request from personal website" />
+                <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" />
                 <input type="email" name="_replyto" placeholder="Your email" required>
                 <textarea name="message" placeholder="Your message" required></textarea>
                 <button type="submit">Send</button>
@@ -1018,6 +1229,75 @@ When I’m not crafting pipelines, I contribute to open-source projects and writ
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
+            // Current year auto update
+            var yearEl = document.getElementById('current-year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+
+            // Theme toggle
+            var themeToggle = document.getElementById('theme-toggle');
+            function applyTheme(theme) {
+                var isDark = theme === 'dark';
+                document.body.classList.toggle('theme-dark', isDark);
+                if (themeToggle) {
+                    themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+                    var icon = themeToggle.querySelector('i');
+                    if (icon) {
+                        icon.className = isDark ? 'fa fa-sun-o' : 'fa fa-moon-o';
+                    }
+                }
+                localStorage.setItem('theme', theme);
+            }
+            var storedTheme = localStorage.getItem('theme');
+            if (storedTheme) {
+                applyTheme(storedTheme);
+            } else {
+                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                applyTheme(prefersDark ? 'dark' : 'light');
+            }
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    var isDark = document.body.classList.contains('theme-dark');
+                    applyTheme(isDark ? 'light' : 'dark');
+                });
+            }
+
+            // Typewriter effect
+            var typingEl = document.getElementById('lead-typing');
+            if (typingEl) {
+                var phrases = (typingEl.getAttribute('data-typing') || '').split('|').map(function(text) {
+                    return text.trim();
+                }).filter(Boolean);
+                if (phrases.length) {
+                    var phraseIndex = 0;
+                    var charIndex = 0;
+                    var deleting = false;
+                    var type = function() {
+                        var phrase = phrases[phraseIndex];
+                        if (!deleting) {
+                            charIndex += 1;
+                            typingEl.textContent = phrase.slice(0, charIndex);
+                            if (charIndex === phrase.length) {
+                                deleting = true;
+                                setTimeout(type, 1200);
+                                return;
+                            }
+                        } else {
+                            charIndex -= 1;
+                            typingEl.textContent = phrase.slice(0, charIndex);
+                            if (charIndex === 0) {
+                                deleting = false;
+                                phraseIndex = (phraseIndex + 1) % phrases.length;
+                            }
+                        }
+                        setTimeout(type, deleting ? 50 : 90);
+                    };
+                    type();
+                }
+            }
+
             // Mobile menu toggle
             $('#mobile-menu-open').click(function() {
                 $('header, body').addClass('active');
@@ -1052,6 +1332,43 @@ When I’m not crafting pipelines, I contribute to open-source projects and writ
                 }, 500);
             });
 
+            // Back to top visibility
+            function updateToTopVisibility() {
+                $('#to-top').toggleClass('is-visible', $(window).scrollTop() > 400);
+            }
+            updateToTopVisibility();
+
+            // Active nav on scroll
+            var navLinks = $('#menu a[href^="#"]');
+            var sectionIds = navLinks.map(function() {
+                return $(this).attr('href');
+            }).get();
+
+            function updateActiveNav() {
+                var scrollPos = $(window).scrollTop() + 120;
+                var currentId = null;
+                sectionIds.forEach(function(id) {
+                    var section = $(id);
+                    if (section.length && section.offset().top <= scrollPos) {
+                        currentId = id;
+                    }
+                });
+                if (currentId) {
+                    navLinks.removeClass('active');
+                    navLinks.filter('[href="' + currentId + '"]').addClass('active');
+                }
+            }
+            updateActiveNav();
+
+            var scrollTimer = null;
+            $(window).on('scroll', function() {
+                updateToTopVisibility();
+                if (scrollTimer) {
+                    clearTimeout(scrollTimer);
+                }
+                scrollTimer = setTimeout(updateActiveNav, 50);
+            });
+
             // Scroll to sections (down arrow)
             $('#lead-down span').click(function(e) {
                 e.preventDefault(); // Prevent default anchor behavior
@@ -1061,6 +1378,85 @@ When I’m not crafting pipelines, I contribute to open-source projects and writ
                     $('html, body').animate({
                         scrollTop: scrollTo
                     }, 1500); // Smooth scroll duration (1.5 seconds)
+                }
+            });
+
+            // Skills animation on view
+            var skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                var skillItems = skillsSection.querySelectorAll('li');
+                skillItems.forEach(function(item, index) {
+                    item.style.transitionDelay = (index * 40) + 'ms';
+                });
+                if ('IntersectionObserver' in window) {
+                    var observer = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                skillsSection.classList.add('in-view');
+                                observer.disconnect();
+                            }
+                        });
+                    }, { threshold: 0.2 });
+                    observer.observe(skillsSection);
+                } else {
+                    skillsSection.classList.add('in-view');
+                }
+            }
+
+            // Copy to clipboard
+            $('.copy-btn').on('click', function() {
+                var $btn = $(this);
+                var $status = $btn.siblings('.copy-status');
+                var copyType = $btn.data('copy');
+                var value = copyType === 'page-url' ? window.location.href : copyType;
+                if (!value) {
+                    return;
+                }
+
+                var showStatus = function(message) {
+                    $status.text(message);
+                    setTimeout(function() {
+                        $status.text('');
+                    }, 2000);
+                };
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(value).then(function() {
+                        showStatus('Copied!');
+                    }).catch(function() {
+                        showStatus('Copy failed');
+                    });
+                } else {
+                    var $temp = $('<input>');
+                    $('body').append($temp);
+                    $temp.val(value).select();
+                    try {
+                        document.execCommand('copy');
+                        showStatus('Copied!');
+                    } catch (err) {
+                        showStatus('Copy failed');
+                    }
+                    $temp.remove();
+                }
+            });
+
+            // Basic form validation + honeypot
+            $('#contact-form form').on('submit', function(e) {
+                var $form = $(this);
+                var honeypot = $form.find('input[name="_gotcha"]').val().trim();
+                if (honeypot) {
+                    e.preventDefault();
+                    return false;
+                }
+
+                var email = $form.find('input[name="_replyto"]').val().trim();
+                var message = $form.find('textarea[name="message"]').val().trim();
+                var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+                if (!emailValid || message.length < 10) {
+                    e.preventDefault();
+                    alert('Please enter a valid email and a message of at least 10 characters.');
+                    return false;
                 }
             });
         });
