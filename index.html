@@ -806,30 +806,32 @@
         
         @media only screen and (max-width: 991px) {
             header {
-                background: #fff;
-                border-bottom: 1px solid #dcd9d9;
+                background: transparent;
+                border-bottom: none;
                 position: fixed;
                 top: 0;
                 margin: 0;
                 transition: all 0.5s ease;
                 z-index: 999;
-                height: 35px;
+                height: 0;
                 overflow: hidden;
             }
             
             header.active {
                 height: auto;
+                background: #fff;
+                border-bottom: 1px solid #dcd9d9;
             }
             
             header.sticky {
-                background: #fff;
-                border-bottom: 1px solid #dcd9d9;
+                background: transparent;
+                border-bottom: none;
                 position: fixed;
                 top: 0;
                 margin: 0;
                 transition: all 0.5s ease;
                 z-index: 999;
-                height: 35px;
+                height: 0;
                 overflow: hidden;
             }
             
@@ -838,15 +840,24 @@
             }
             
             #mobile-menu-close {
+                display: none;
+            }
+
+            header.active #mobile-menu-close {
                 display: block;
             }
             
             #menu {
+                display: none;
                 height: auto;
                 overflow: hidden;
                 box-shadow: none;
                 border-radius: 0;
                 width: 100%;
+            }
+
+            header.active #menu {
+                display: block;
             }
             
             #menu li {
